@@ -1,0 +1,63 @@
+
+/* 
+    Created on : 20-nov-2019, 9:27:54
+    Author     : velsoft
+*/
+
+.negrita {
+    font-weight: bold;
+}
+
+.ui-panel .ui-panel-titlebar .ui-panel-title {
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+.formularioTop {
+    vertical-align: top;
+    margin-left: 2em;
+}
+
+.izquierda {
+    text-align: left;
+    font-weight: bolder;
+    font-size: 2em;
+}
+
+body .booleanCheckbox.ui-chkbox {
+    width: auto;
+}
+
+body .booleanCheckbox .ui-chkbox-box {
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 4px;
+}
+
+body .booleanCheckbox .ui-chkbox-label {
+    vertical-align: middle;
+    margin-top: 0;
+}
+
+input:disabled {
+    background: #cccccc;
+}
+
+
+
+
+.ui-panel .ui-panel-titlebar .ui-panel-title {
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+.formularioTop {
+    vertical-align: top;
+    margin-left: 2em;
+}
+
+.izquierda {
+    text-align: left;
+    font-weight: bolder;
+    font-size: 2em;
+}

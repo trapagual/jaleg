@@ -1,0 +1,195 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+
+    <h:head>
+        <f:facet name="first">
+            <meta content='text/html; charset=UTF-8' http-equiv="Content-Type"/>
+            <title>Pedidos - Editar Pedido</title>
+        </f:facet>
+
+    </h:head>
+
+    <h:body>
+        <h:form id="frm1">
+            <p:growl id="msgs" showDetail="true" />
+            <p:panel header="Edición del pedido: #{epBean.pedido.id}">
+                <ui:remove>FILA UNO</ui:remove>
+                <div class="ui-g ui-g-nopad" >
+                    <div class="ui-g-1">
+                        <p:outputLabel style="font-weight: bold" for="itNickAgente" value="Agente" />
+                    </div>
+                    <div class="ui-g-11">
+                        <p:inputText  id="itNickAgente" value="#{epBean.pedido.agente.nick}" disabled="true" />
+                        <p:inputText  id="itNomAgente"  value="#{epBean.pedido.agente.nombreCompleto}"  disabled="true"  />  
+                    </div>
+                </div>
+
+<<<<<<< HEAD
+                <ui:remove>FILA DOS</ui:remove>
+                <div class="ui-g ui-g-nopad">
+                    <div class="ui-g-1">
+                        <p:outputLabel   style="vertical-align: top; font-weight: bold" for="soCliente" value="Cliente" />
+                    </div>
+                    <div class="ui-g-5">
+                        <p:selectOneMenu id="soCliente" value="#{epBean.pedido.cliente}"
+                                         filter="true" filterMatchMode="startsWith">
+                            <f:selectItems value="#{epBean.clientes}" var="cl" itemLabel="#{cl.nombreComercial}" itemValue="#{cl}"/>
+                        </p:selectOneMenu>  
+                    </div>
+                    <div class="ui-g-1">
+                        <p:outputLabel style="font-weight: bold" for="itClienteFinal" value="Cliente Final" />
+                    </div>
+                    <div class="ui-g-5">
+                        <p:inputText id="itClienteFinal" value="#{epBean.pedido.clienteFinal}" />
+                    </div>                    
+                </div> 
+
+                <ui:remove>FILA TRES</ui:remove>
+                <div class="ui-g ui-g-nopad">
+                    <div class="ui-g-1">
+                        <p:outputLabel style="font-weight: bold" for="itFechaAlta" value="Fecha Alta"/>
+                    </div>
+                    <div class="ui-g-2">
+                        <p:inputText  id="itFechaAlta" value="#{epBean.pedido.fechaAlta}"  disabled="true"  />                        
+                    </div>                    
+                    <div class="ui-g-1">
+                        <p:outputLabel style="font-weight: bold" for="itRefCliente" value="Ref. Cliente"/>
+                    </div>                    
+                    <div class="ui-g-2">
+                        <p:inputText  id="itRefCliente" value="#{epBean.pedido.refCliente}" />
+                    </div>                       
+                    <div class="ui-g-1">
+                        <p:outputLabel style="vertical-align: top; font-weight: bold" for="soTipoCarga" value="Tipo Carga"/>
+                    </div>
+                    <div class="ui-g-1">
+                        <p:selectOneMenu id="soTipoCarga" value="#{epBean.tc}">
+                            <f:selectItems value="#{epBean.tiposCarga}" var="c" itemLabel="#{c.descripcion}" itemValue="#{c.id}"/>
+                        </p:selectOneMenu>                        
+                    </div>
+                    <div class="ui-g-1">
+                        <p:outputLabel style="vertical-align: top; font-weight: bold;" for="soTipoVehiculo" value="Tipo Vehículo"/>
+                    </div>
+                    <div class="ui-g-2">
+                        <p:selectOneMenu id="soTipoVehiculo" value="#{epBean.tv}">
+                            <f:selectItems value="#{epBean.tiposVehiculo}" var="v" itemLabel="#{v.descripcion}" itemValue="#{v.id}"/>
+                        </p:selectOneMenu>                     
+                    </div>                    
+                    <div class="ui-g-1">
+                        <p:selectBooleanCheckbox styleClass="booleanCheckbox" style="font-weight: bold" value="#{epBean.pedido.adr}" itemLabel="ADR" />                         
+                    </div>
+                </div>
+                
+                <ui:remove>FILA CUATRO</ui:remove>                
+                <div class="ui-g ui-g-nopad">
+                    <div class="ui-g-1">
+                        <p:outputLabel style="font-weight: bold" for="itFechaIni" value="Fecha Inicio Svc."/>
+                    </div>
+                    <div class="ui-g-2">
+                        <p:inputText  id="itFechaIni" value="#{epBean.pedido.fechaIniServicio}"  disabled="true"  />                        
+
+                    </div>
+                    <div class="ui-g-1">
+                        <p:outputLabel style="font-weight: bold" for="itFechaFin" value="Fecha Fin Svc."/>
+                    </div>
+                    <div class="ui-g-2">
+                        <p:inputText  id="itFechaFin" value="#{epBean.pedido.fechaFinServicio}" disabled="true"  />                        
+                    </div>                     
+                    <div class="ui-g-1">
+                        <p:outputLabel style="font-weight: bold" for="itRuta" value="Ruta"/>
+                    </div>
+                    <div class="ui-g-5">
+                        <p:inputText style="width: 100%" id="itRuta" value="#{epBean.aliasRuta}" disabled="true"  />                        
+                    </div>
+                </div>
+ 
+                <hr/>
+                
+                <ui:remove>FILA CINCO</ui:remove>                
+                <div class="ui-g ui-g-nopad">
+                    <div class="ui-g-1">
+                        <p:outputLabel style="font-weight: bold" for="itKmsNac" value="Kms Nacional"/>
+                    </div>                
+                    <div class="ui-g-2">
+                        <p:inputText  id="itKmsNac" value="#{epBean.pedido.totKmsNac}"  disabled="true"  />                        
+                    </div> 
+                    <div class="ui-g-1">
+                        <p:outputLabel style="font-weight: bold" for="itCosteKmsNac" value="Coste Km Nac"/>
+                    </div>                
+                    <div class="ui-g-2">
+                        <p:inputText  id="itCosteKmsNac" value="#{epBean.pedido.costKmsNac}"  disabled="true"  />                        
+                    </div> 
+                    <div class="ui-g-6"></div>
+                    
+                    <div class="ui-g-1">
+                        <p:outputLabel style="font-weight: bold" for="itKmsAutoNac" value="Kms Autop Nac"/>
+                    </div>                
+                    <div class="ui-g-2">
+                        <p:inputText  id="itKmsAutoNac" value="#{epBean.pedido.kmsAutopstNac}"  disabled="true"  />                        
+                    </div> 
+                    <div class="ui-g-1">
+                        <p:outputLabel style="font-weight: bold" for="itCosteKmsAutopNac" value="Coste Km Autop Nac"/>
+                    </div>                
+                    <div class="ui-g-2">
+                        <p:inputText  id="itCosteKmsAutopNac" value="#{epBean.pedido.costKmsAutopstNac}"  disabled="true"  />                        
+                    </div>  
+                    <div class="ui-g-6"></div>
+
+                    <div class="ui-g-1">
+                        <p:outputLabel style="font-weight: bold" for="itKmsInt" value="Kms Internacional"/>
+                    </div>                
+                    <div class="ui-g-2">
+                        <p:inputText  id="itKmsInt" value="#{epBean.pedido.totKmsInt}"  disabled="true"  />                        
+                    </div> 
+                    <div class="ui-g-1">
+                        <p:outputLabel style="font-weight: bold" for="itCosteKmInt" value="Coste Km Inter"/>
+                    </div>                
+                    <div class="ui-g-2">
+                        <p:inputText  id="itCosteKmInt" value="#{epBean.pedido.costKmsInt}"  disabled="true"  />                        
+                    </div>  
+                    <div class="ui-g-6"></div>
+                    
+                    <div class="ui-g-1">
+                        <p:outputLabel style="font-weight: bold" for="itKmsAutoInt" value="Kms Autop Int"/>
+                    </div>                
+                    <div class="ui-g-2">
+                        <p:inputText  id="itKmsAutoInt" value="#{epBean.pedido.kmsAutopstInt}"  disabled="true"  />                        
+                    </div> 
+                    <div class="ui-g-1">
+                        <p:outputLabel style="font-weight: bold" for="itCosteKmAutoInt" value="Coste Km Autop Inter"/>
+                    </div>                
+                    <div class="ui-g-2">
+                        <p:inputText  id="itCosteKmAutoInt" value="#{epBean.pedido.costKmsAutopstInt}"  disabled="true"  />                        
+                    </div> 
+                    <div class="ui-g-6"></div>
+                </div>
+                
+                <ui:remove>FILA SEIS</ui:remove>                
+                <div class="ui-g ui-g-nopad">
+                    <div class="ui-g-1">
+                        <p:outputLabel style="font-weight: bold" for="itJorTeo" value="Jornadas Teóricas"/>
+                    </div>                
+                    <div class="ui-g-2">
+                        <p:inputText  id="itJorTeo" value="#{epBean.jornadasTeoricas}"  disabled="true"  />                        
+                    </div> 
+                    <div class="ui-g-1">
+                        <p:outputLabel style="font-weight: bold" for="itCosteJorTeo" value="Coste Jornada Teórica"/>
+                    </div>                
+                    <div class="ui-g-2">
+                        <p:inputText  id="itCosteJorTeo" value="#{epBean.costeJornadaTeorica}"  disabled="true"  />                        
+                    </div> 
+                    <div class="ui-g-6"></div>   
+                </div>
+            </p:panel>
+        </h:form>
+
+    </h:body>
+    <f:facet name="last">
+        <h:outputStylesheet library="css" name="style.css" />
+    </f:facet>    
+
+</html>
+

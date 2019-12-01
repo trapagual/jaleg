@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.1" xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
+  <persistence-unit name="eg_JPA_SQLSERVER" transaction-type="RESOURCE_LOCAL">
+    <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+    <class>es.velsoft.modelo.Rutas</class>
+    <class>es.velsoft.modelo.Direcciones</class>
+    <class>es.velsoft.modelo.Provincias</class>
+    <class>es.velsoft.modelo.Municipios</class>
+    <class>es.velsoft.modelo.Paises</class>
+    <class>es.velsoft.modelo.AuxTiposVias</class>
+    <class>es.velsoft.modelo.AuxTiposervicios</class>
+    <class>es.velsoft.modelo.AuxEstadoservicio</class>
+    <class>es.velsoft.modelo.Servicios</class>
+    <class>es.velsoft.modelo.AuxTipoSvcPedidos</class>
+    <exclude-unlisted-classes>false</exclude-unlisted-classes>
+    <properties>
+      <property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect"/>
+      <property name="hibernate.connection.driver_class" value="com.mysql.jdbc.Driver"/>
+      <property name="hibernate.connection.url" value="jdbc:mysql://localhost:3306/dberp_083"/>
+      <property name="hibernate.connection.password" value="Tr1f0st10#"/>
+      <property name="hibernate.connection.username" value="root"/>
+
+      <property name="hibernate.show_sql" value="true"/>
+      <property name="hibernate.connection.characterEncoding" value="UTF-8"/>
+    </properties>
+  </persistence-unit>
+</persistence>

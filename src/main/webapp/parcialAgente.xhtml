@@ -1,0 +1,67 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+
+    <h:outputStylesheet library="css" name="style.css" />
+    <p:panel id="pnlAgenteContainer" 
+             widgetVar="pnlAgenteContainer" 
+             header="Detalle Agente" 
+             toggleable="true" 
+             visible="#{pedidosBean.mostrarPanelAgente}"
+             style="margin-top: 2em"
+             >
+        <p:panelGrid id="pnlAgente1" columns="8" styleClass="ui-noborder" style="width: 100%">
+            <h:outputLabel for="itIdAgente" value="Id:" />
+            <p:inputText id="itIdAgente" value="#{pedidosBean.detalleAgente.idAgente}" disabled="false" />
+
+            <h:outputLabel for="itCodAgente" value="Cod:" />
+            <p:inputText id="itCodAgente" value="#{pedidosBean.detalleAgente.codAgente}" disabled="false" />
+
+            <h:outputLabel for="itNickAgente" value="Nick:" />
+            <p:inputText id="itNickAgente" value="#{pedidosBean.detalleAgente.nick}" disabled="false" />
+
+            <h:outputLabel for="itActivo" value="Activo:" />
+            <p:inputText id="itActivo" value="#{pedidosBean.detalleAgente.activo}" disabled="false" />
+
+            <h:outputLabel for="itNomAgente" value="Nombre:" />
+            <p:inputText id="itNomAgente" value="#{pedidosBean.detalleAgente.nombre}" disabled="false"/>
+
+            <h:outputLabel for="itApAgente" value="Apellidos:" />
+            <p:inputText id="itApAgente" value="#{pedidosBean.detalleAgente.apellidos}" disabled="false"/>
+
+            <h:outputLabel for="itFechaI" value="Fecha Inserción:" />
+            <p:inputText id="itFechaI" value="#{pedidosBean.detalleAgente.fechaInsercion}" disabled="false">
+                <f:convertDateTime pattern="yyyy-MM-dd"/>
+            </p:inputText>
+
+            <h:outputLabel for="itCodResp" value="Cód Responsable::" />
+            <p:inputText id="itCodResp" value="#{pedidosBean.detalleAgente.codResponsable}" disabled="false"/>
+
+
+
+            <h:outputLabel for="itTelf" value="Teléfono:" />
+            <p:inputText id="itTelf" value="#{pedidosBean.detalleAgente.telefono}" disabled="false"/>
+
+            <h:outputLabel for="itTelDept" value="Tel. Depto." />
+            <p:inputText id="itTelDept" value="#{pedidosBean.detalleAgente.telefonoDpto}" disabled="false"/>
+
+            <h:outputLabel for="itFaxDepto" value="Fax.Depto:" />
+            <p:inputText id="itFaxDepto" value="#{pedidosBean.detalleAgente.faxDpto}" disabled="false"/>
+
+            <h:outputLabel for="vacio1" value="" />
+            <h:outputText id="vacio1" value="" />
+
+            <h:outputLabel for="itEmailCargas" value="Email Cargas:" />
+            <p:inputText id="itEmailCargas" value="#{pedidosBean.detalleAgente.emailCargas}" disabled="false"/>
+
+            <h:outputLabel for="itEmailRiesgos" value="Email Riesgos:" />
+            <p:inputText id="itEmailRiesgos" value="#{pedidosBean.detalleAgente.emailRiesgos}" disabled="false"/>                
+
+
+        </p:panelGrid>
+    </p:panel>
+</html>
+

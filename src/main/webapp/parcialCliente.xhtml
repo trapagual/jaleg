@@ -1,0 +1,82 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+
+    <h:outputStylesheet library="css" name="style.css" />
+    <p:panel id="pnlClienteContainer" 
+             widgetVar="pnlClienteContainer" 
+             header="Detalle Cliente" 
+             toggleable="true" 
+             visible="#{pedidosBean.mostrarPanelCliente}"
+             style="margin-top: 2em"
+             >
+
+        <p:panelGrid id="pnlCliente1" styleClass="ui-noborder"  style="width: 100%">
+            <p:row>
+                <p:column>
+                    <h:outputLabel style="width: 100px" for="itIdCliente" value="Id:" />
+                    <p:inputText style="width: 100px; margin-left: 2em;" id="itIdCliente" value="#{pedidosBean.detalleCliente.id}" disabled="false" />
+                </p:column>
+                <p:column>
+                    <h:outputLabel style="width: 100px" for="itCodCliente" value="Cod:" />
+                    <p:inputText style="width: 100px; margin-left: 2em;" id="itCodCliente" value="#{pedidosBean.detalleCliente.codCliente}" disabled="false" />
+                </p:column>
+
+                <p:column colspan="2">
+                    <h:outputLabel style="width: 100px" for="itAliasCliente" value="Alias:" />
+                    <p:inputText style="margin-left: 2em; width: 80%" id="itAliasCliente" value="#{pedidosBean.detalleCliente.alias}" disabled="false" />
+                </p:column>
+
+            </p:row>
+            <p:row>
+                <p:column colspan="4">
+                    <h:outputLabel for="itNomComercial" value="Nombre Comercial:" style="width: 100px" />
+                    <p:inputText id="itNomComercial" value="#{pedidosBean.detalleCliente.nombreComercial}" disabled="false"  style="margin-left: 2em; width: 90%" />
+                </p:column>
+            </p:row>
+
+            <p:row>
+                <p:column>
+                    <h:outputLabel for="itNomCliente" value="Nombre:" />
+                    <p:inputText id="itNomCliente" value="#{pedidosBean.detalleCliente.nombre}" disabled="false" style="width: 100%" />
+                </p:column>
+                <p:column>
+                    <h:outputLabel for="itAp1Cliente" value="Apellido1:" />
+                    <p:inputText id="itAp1Cliente" value="#{pedidosBean.detalleCliente.apellido1}" disabled="false" style="width: 100%" />
+                </p:column>
+                <p:column>
+                    <h:outputLabel for="itAp2Cliente" value="Apellido2:" />
+                    <p:inputText id="itAp2Cliente" value="#{pedidosBean.detalleCliente.apellido2}" disabled="false" style="width: 100%" />
+                </p:column>
+                <p:column>
+                    <h:outputLabel for="itCif" value="CIF:" />
+                    <p:inputText id="itCif" value="#{pedidosBean.detalleCliente.cif}" disabled="false" style="width: 100%" />
+                </p:column>
+            </p:row>
+            <p:row>
+                <p:column>
+                    <h:outputLabel for="itTipoVia" value="T.Vía:" />
+                    <p:inputText id="itTipoVia" value="#{pedidosBean.detalleCliente.codTipoVia}" disabled="false"  style="width: 100px"/>
+                </p:column>
+                <p:column>
+                    <h:outputLabel for="itDireccion" value="Dirección:" />
+                    <p:inputText id="itDireccion" value="#{pedidosBean.detalleCliente.direccion}" disabled="false" style="width: 100%" />
+                </p:column>
+                <p:column>
+                    <h:outputLabel for="itNumCalle" value="Núm.:" />
+                    <p:inputText id="itNumCalle" value="#{pedidosBean.detalleCliente.numero}" disabled="false" />
+                </p:column>
+                <p:column>
+                    <h:outputLabel for="itCodPos" value="Cód.Pos.:" />
+                    <p:inputText id="itCodPos" value="#{pedidosBean.detalleCliente.cp}" disabled="false" style="width: 100px" />
+                </p:column>
+            </p:row>
+        </p:panelGrid>
+        <h:outputLabel for="txtObservaciones" value="Observaciones:" /> <br/>
+        <p:inputTextarea id="txtObservaciones" value="#{pedidosBean.detalleCliente.observaciones}" style="width: 100%" />
+    </p:panel>
+</html>
+

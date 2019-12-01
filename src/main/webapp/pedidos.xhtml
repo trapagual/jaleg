@@ -1,0 +1,86 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+
+    <h:head>
+        <f:facet name="first">
+            <meta content='text/html; charset=UTF-8' http-equiv="Content-Type"/>
+            <title>Pedidos</title>
+        </f:facet>
+        <h:outputStylesheet library="css" name="style.css" />
+
+    </h:head>
+
+    <h:body>
+        <h:form id="frm1">
+            <p:growl id="messages" showDetail="true" />
+            <p:dataTable var="p" id="pedidosTable"
+                         widgetVar="pedidosTable"
+                         value="#{pedidosBean.model}" 
+                         paginator="true" rows="10"
+                         currentPageReportTemplate="(Regs: {startRecord} - {endRecord} / {totalRecords}; Págs: {currentPage} / {totalPages})"
+                         paginatorTemplate="{CurrentPageReport} {RowsPerPageDropdown} {FirstPageLink} {PreviousPageLink}  {PageLinks} {NextPageLink} {LastPageLink}"
+                         rowsPerPageTemplate="10,15,25,35,100" 
+                         emptyMessage="No hay registros para esos criterios"
+                         rowKey="#{p.idPedido}"
+                         filteredValue="#{pedidosBean.filtrados}"
+                         lazy="true">
+                <f:facet name="header">
+                    <h:outputText value="Pedidos:" style="font-size: 1.5em; font-weight: bolder; text-align: left" />
+                </f:facet>      
+                <p:column style="width: 100px; text-align: right" sortBy="#{p.idPedido}" filterBy="#{p.idPedido}" headerText="Id" filterMatchMode="contains">
+                    <h:outputText style="margin-left: 1em;" value="#{p.idPedido}" />
+                </p:column> 
+                <p:column style="width: 40px; text-align: right" headerText="Editar">
+                    <p:commandButton id="cmdEditPedido" action="#{pedidosBean.cargaPedido(p.idPedido)}" icon="pi pi-pencil" ajax="false">
+                        <f:param name="id" value="#{p.idPedido}" />
+                    </p:commandButton>
+                    
+                </p:column>
+                <p:column sortBy="#{p.apellidoAgente}" filterBy="#{p.apellidoAgente}" headerText="Apellidos Ag." filterMatchMode="contains">
+                    <p:commandLink id="cmdlIdAgente" 
+                                   value="#{p.apellidoAgente}"
+                                   actionListener="#{pedidosBean.handleAgentData(p)}" 
+                                   update="frm1:pnlAgenteContainer" >
+                    </p:commandLink>
+                </p:column>
+                <p:column sortBy="#{p.nombreAgente}" filterBy="#{p.nombreAgente}" headerText="Nombre Ag." filterMatchMode="contains">
+                    <h:outputText value="#{p.nombreAgente}" />
+                </p:column>     
+                <p:column sortBy="#{p.nickAgente}" filterBy="#{p.nickAgente}" headerText="Nick Ag." filterMatchMode="contains">
+                    <h:outputText value="#{p.nickAgente}" />
+                </p:column>                  
+                <p:column style="width: 60px" sortBy="#{p.idCliente}" filterBy="#{p.idCliente}" headerText="Id Cliente" filterMatchMode="contains">
+                    <p:commandLink id="cmdlIdCliente" 
+                                   value="#{p.idCliente}"
+                                   actionListener="#{pedidosBean.handleClientData(p)}" 
+                                   update="frm1:pnlClienteContainer" >
+                    </p:commandLink>
+                </p:column>
+                <p:column sortBy="#{p.refCliente}" filterBy="#{p.refCliente}" headerText="Ref. Cliente" filterMatchMode="contains">
+                    <h:outputText value="#{p.refCliente}" />
+                </p:column>
+                <p:column sortBy="#{p.fechaAlta}" filterBy="#{p.fechaAlta}" headerText="F. Pedido" filterMatchMode="contains">
+                    <h:outputText value="#{p.fechaAlta}" />
+                </p:column>                        
+                <p:column sortBy="#{p.fechaIniServicio}" filterBy="#{p.fechaIniServicio}" headerText="Inicio Svc." filterMatchMode="contains">
+                    <h:outputText value="#{p.fechaIniServicio}" />
+                </p:column>                        
+                <p:column sortBy="#{p.fechaFinServicio}" filterBy="#{p.fechaFinServicio}" headerText="Fin Svc." filterMatchMode="contains">
+                    <h:outputText value="#{p.fechaFinServicio}" />
+                </p:column>     
+            </p:dataTable >
+
+            <ui:include src="parcialAgente.xhtml" />
+            <ui:include src="parcialCliente.xhtml" />
+            
+        </h:form>
+
+
+    </h:body>
+
+</html>
+
